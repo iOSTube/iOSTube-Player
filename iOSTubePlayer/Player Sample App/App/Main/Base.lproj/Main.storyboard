@@ -35,7 +35,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="playerView" destination="pMq-v1-g2V" id="ohL-Xz-7ow"/>
+                        <outlet property="playerViewIB" destination="pMq-v1-g2V" id="C2w-3m-UBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,34 +12,32 @@ import AVKit
 class MainViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var playerView: iOSTubePlayerView!
+    @IBOutlet private weak var playerViewIB: iOSTubePlayerView!
     
     // MARK: - Variables
-    private let sampleVideoUrl: String = "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4"
-    
-    private var videoUrl: URL {
-        return URL(string: sampleVideoUrl)!
-    }
-    
     private var playerViewCode: iOSTubePlayerView = {
         return iOSTubePlayerView(frame: .zero)
     }()
     
+    private var sampleVideos = VideoData.Samples()
+    private var currentIndex1: Int = 0
+    private var currentIndex2: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playerView.delegate = self
+        playerViewIB.delegate = self
         playerViewCode.delegate = self
         view.addSubview(playerViewCode)
         
-        playerView.requestPlay(url: videoUrl)
-        playerViewCode.requestPlay(url: videoUrl)
+        playerViewIB.requestPlay(url: sampleVideos[currentIndex1].url)
+        playerViewCode.requestPlay(url: sampleVideos[currentIndex2].url)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        playerViewCode.frame = playerView.bounds
+        playerViewCode.frame = playerViewIB.bounds
         playerViewCode.frame.origin.y = 300
     }
     
@@ -57,10 +55,30 @@ extension MainViewController: iOSTubePlayerDataSource {
 extension MainViewController: iOSTubePlayerDelegate {
     
     func requestPrevious(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
-        print("requestPrevious")
+        switch playerView {
+        case playerViewIB:
+            currentIndex1 -= 1
+            requestPlay(playerView: playerView, index: currentIndex1)
+        case playerViewCode:
+            currentIndex2 -= 1
+        default:
+            break
+        }
     }
     
     func requestNext(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
-        print("requestNext")
+        switch playerView {
+        case playerViewIB:
+            currentIndex1 += 1
+            requestPlay(playerView: playerView, index: currentIndex1)
+        case playerViewCode:
+            currentIndex2 += 1
+        default:
+            break
+        }
+    }
+    
+    private func requestPlay(playerView: iOSTubePlayerView, index: Int) {
+        playerView.requestPlay(url: sampleVideos[index].url)
     }
 }

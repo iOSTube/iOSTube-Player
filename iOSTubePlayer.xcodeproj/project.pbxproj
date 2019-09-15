@@ -18,6 +18,7 @@
 		49758B39232E5C35004C25A6 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B38232E5C35004C25A6 /* Nib.swift */; };
 		49758B3C232E6F83004C25A6 /* PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B3B232E6F83004C25A6 /* PlayerControl.swift */; };
 		49758B3E232E86F9004C25A6 /* iOSTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B3D232E86F9004C25A6 /* iOSTubePlayer.swift */; };
+		49758B41232E8D06004C25A6 /* VideoSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B40232E8D06004C25A6 /* VideoSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		49758B38232E5C35004C25A6 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		49758B3B232E6F83004C25A6 /* PlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControl.swift; sourceTree = "<group>"; };
 		49758B3D232E86F9004C25A6 /* iOSTubePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTubePlayer.swift; sourceTree = "<group>"; };
+		49758B40232E8D06004C25A6 /* VideoSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		49758B29232E4E4D004C25A6 /* Player Sample App */ = {
 			isa = PBXGroup;
 			children = (
+				49758B3F232E8CFA004C25A6 /* Data */,
 				49758B2B232E4ED0004C25A6 /* App */,
 			);
 			path = "Player Sample App";
@@ -153,6 +156,14 @@
 				49758B37232E5C2A004C25A6 /* Nib */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		49758B3F232E8CFA004C25A6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				49758B40232E8D06004C25A6 /* VideoSample.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				49758B2E232E4FA9004C25A6 /* iOSTubePlayerView.swift in Sources */,
 				49758B32232E5B9F004C25A6 /* PlayerControlView.swift in Sources */,
 				49758B3E232E86F9004C25A6 /* iOSTubePlayer.swift in Sources */,
+				49758B41232E8D06004C25A6 /* VideoSample.swift in Sources */,
 				49758B3C232E6F83004C25A6 /* PlayerControl.swift in Sources */,
 				49758B17232E4CBA004C25A6 /* AppDelegate.swift in Sources */,
 			);
@@ -380,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7BMLJLG67;
 				INFOPLIST_FILE = iOSTubePlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -398,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7BMLJLG67;
 				INFOPLIST_FILE = iOSTubePlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

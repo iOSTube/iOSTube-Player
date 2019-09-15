@@ -80,7 +80,11 @@ extension iOSTubePlayerView {
         let playerItem = AVPlayerItem(asset: asset)
         
         if player.canInsert(playerItem, after: player.items().last) {
-            player.insert(playerItem, after: nil)
+            if player.items().count == 0 {
+                player.insert(playerItem, after: nil)
+            } else {
+                player.replaceCurrentItem(with: playerItem)
+            }
             // For dev
             player.volume = 0.0
             playerPlay()
@@ -101,6 +105,11 @@ extension iOSTubePlayerView {
         if isPlaying {
             player.pause()
         }
+    }
+    
+    func playerStop() {
+        playerPause()
+        player.seek(to: .zero)
     }
 }
 
