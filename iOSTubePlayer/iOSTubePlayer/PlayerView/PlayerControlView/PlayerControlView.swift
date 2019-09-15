@@ -10,10 +10,21 @@ import UIKit
 
 class PlayerControlView: UIView, Nib {
 
-    // MAKR: - Outlets
+    // MAKR: - Header Outlets
+    @IBOutlet weak var controlHeaderView: UIView!
+    
+    // MAKR: - Body Outlets
+    @IBOutlet weak var controlBodyView: UIView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    // MAKR: - Footer Outlets
+    @IBOutlet weak var controlFooterView: UIView!
     
     // MARK: - Variables
     
+    // MARK: - Initial
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -26,5 +37,38 @@ class PlayerControlView: UIView, Nib {
     
     private func commonInit() {
         loadNib()
+        backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    }
+}
+
+// MARK: -
+extension PlayerControlView {
+    
+    func appearControlView() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.alpha = 1.0
+        }
+    }
+    
+    func disappearControlerView() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.alpha = 0.0
+        }
+    }
+}
+
+// MARK: - UITouch Events
+extension PlayerControlView {
+    
+    @IBAction func tappedPlayButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func tappedPreviousButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func tappedNextButton(_ sender: UIButton) {
+        
     }
 }

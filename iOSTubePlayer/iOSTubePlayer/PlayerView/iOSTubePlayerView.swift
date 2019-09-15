@@ -11,8 +11,6 @@ import AVKit
 
 class iOSTubePlayerView: UIView {
 
-    // MARK: - Outlets
-    
     // MARK: - Layer Variables
     override public class var layerClass: Swift.AnyClass {
         return AVPlayerLayer.self
@@ -27,6 +25,11 @@ class iOSTubePlayerView: UIView {
     private var isPlaying: Bool {
         return player.rate != 0.0
     }
+    
+    // MARK: - Player Control View
+    private var playerControlView = {
+        return PlayerControlView(frame: .zero)
+    }()
     
     // MARK: - Initial
     override init(frame: CGRect) {
@@ -45,6 +48,7 @@ class iOSTubePlayerView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        playerControlView.frame = bounds
     }
     
     private func commonInit() {
@@ -57,8 +61,8 @@ class iOSTubePlayerView: UIView {
     }
     
     private func initPlayerControlView() {
-        let controlView = PlayerControlView(frame: bounds)
-        addSubview(controlView)
+//        playerControlView.disappearControlerView()
+        addSubview(playerControlView)
     }
 }
 
@@ -71,6 +75,8 @@ extension iOSTubePlayerView {
         
         if player.canInsert(playerItem, after: player.items().last) {
             player.insert(playerItem, after: nil)
+            // For dev
+            player.volume = 0.0
             playerPlay()
         }
     }

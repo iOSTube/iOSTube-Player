@@ -9,13 +9,105 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerControlView" customModule="iOSTubePlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="controlBodyView" destination="4cH-4r-G53" id="fgC-wz-ob6"/>
+                <outlet property="controlFooterView" destination="1qr-eO-dQB" id="75l-Vo-DVD"/>
+                <outlet property="controlHeaderView" destination="bnz-eW-zhv" id="6x6-mH-ZCe"/>
+                <outlet property="nextButton" destination="tgI-V2-RO6" id="Rxd-Mb-vo2"/>
+                <outlet property="playButton" destination="uDi-rS-xfy" id="smx-XG-xML"/>
+                <outlet property="previousButton" destination="QET-Wb-nRR" id="wQE-Fs-gWR"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnz-eW-zhv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Fxy-Ky-Lbb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-eO-dQB">
+                    <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="oWO-Ig-UFQ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cH-4r-G53">
+                    <rect key="frame" x="0.0" y="75" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QET-Wb-nRR">
+                            <rect key="frame" x="72.5" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Kzf-D8-E2M"/>
+                                <constraint firstAttribute="height" constant="50" id="PpG-ac-iTV"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                            <state key="normal" image="previous-track-button"/>
+                            <connections>
+                                <action selector="tappedPreviousButton:" destination="-1" eventType="touchUpInside" id="0K2-La-dcL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDi-rS-xfy">
+                            <rect key="frame" x="162.5" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="37e-H1-oLs"/>
+                                <constraint firstAttribute="height" constant="50" id="4dh-Zr-afu"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <state key="normal" image="play-button"/>
+                            <connections>
+                                <action selector="tappedPlayButton:" destination="-1" eventType="touchUpInside" id="p8u-LO-WNc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgI-V2-RO6">
+                            <rect key="frame" x="252.5" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="rQ2-Ea-3zZ"/>
+                                <constraint firstAttribute="height" constant="50" id="wlX-TP-xsA"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                            <state key="normal" image="next-track-button"/>
+                            <connections>
+                                <action selector="tappedNextButton:" destination="-1" eventType="touchUpInside" id="esJ-mH-isJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tgI-V2-RO6" firstAttribute="centerY" secondItem="4cH-4r-G53" secondAttribute="centerY" id="9sR-pY-aI9"/>
+                        <constraint firstItem="uDi-rS-xfy" firstAttribute="leading" secondItem="QET-Wb-nRR" secondAttribute="trailing" constant="40" id="Pb2-he-2d0"/>
+                        <constraint firstItem="QET-Wb-nRR" firstAttribute="centerY" secondItem="4cH-4r-G53" secondAttribute="centerY" id="Uc3-NT-RSl"/>
+                        <constraint firstItem="uDi-rS-xfy" firstAttribute="centerY" secondItem="4cH-4r-G53" secondAttribute="centerY" id="b2w-ye-bcN"/>
+                        <constraint firstItem="tgI-V2-RO6" firstAttribute="leading" secondItem="uDi-rS-xfy" secondAttribute="trailing" constant="40" id="rOe-gU-oX0"/>
+                        <constraint firstItem="uDi-rS-xfy" firstAttribute="centerX" secondItem="4cH-4r-G53" secondAttribute="centerX" id="t1z-v6-rB5"/>
+                        <constraint firstAttribute="height" constant="50" id="xY5-DI-xxE"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bnz-eW-zhv" secondAttribute="trailing" id="7ib-8G-WyR"/>
+                <constraint firstItem="4cH-4r-G53" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HD1-OJ-2eT"/>
+                <constraint firstItem="bnz-eW-zhv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JUc-Hn-yWc"/>
+                <constraint firstItem="1qr-eO-dQB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3E-M6-qdi"/>
+                <constraint firstAttribute="trailing" secondItem="4cH-4r-G53" secondAttribute="trailing" id="ONF-Vj-X37"/>
+                <constraint firstAttribute="bottom" secondItem="1qr-eO-dQB" secondAttribute="bottom" id="RSn-9u-osF"/>
+                <constraint firstItem="bnz-eW-zhv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hg5-TY-hBE"/>
+                <constraint firstItem="4cH-4r-G53" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="yWJ-KC-ioB"/>
+                <constraint firstAttribute="trailing" secondItem="1qr-eO-dQB" secondAttribute="trailing" id="yhD-Hh-SmP"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="next-track-button" width="128" height="128"/>
+        <image name="play-button" width="128" height="128"/>
+        <image name="previous-track-button" width="128" height="128"/>
+    </resources>
 </document>

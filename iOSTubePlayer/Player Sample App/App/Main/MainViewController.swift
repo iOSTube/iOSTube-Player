@@ -27,12 +27,17 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playerViewCode.frame = playerView.bounds
-        playerViewCode.frame.origin.y = 300
         view.addSubview(playerViewCode)
         
         playerView.requestPlay(url: videoUrl)
         playerViewCode.requestPlay(url: videoUrl)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        playerViewCode.frame = playerView.bounds
+        playerViewCode.frame.origin.y = 300
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
