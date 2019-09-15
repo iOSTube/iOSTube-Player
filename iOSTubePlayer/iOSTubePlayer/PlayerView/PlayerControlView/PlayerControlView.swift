@@ -15,7 +15,7 @@ class PlayerControlView: UIView, Nib {
     
     // MAKR: - Body Outlets
     @IBOutlet weak var controlBodyView: UIView!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -23,6 +23,8 @@ class PlayerControlView: UIView, Nib {
     @IBOutlet weak var controlFooterView: UIView!
     
     // MARK: - Variables
+    weak var delegate: PlayerControlDelegate?
+    weak var dataSource: PlayerControlDataSource?
     
     // MARK: - Initial
     override init(frame: CGRect) {
@@ -60,8 +62,17 @@ extension PlayerControlView {
 // MARK: - UITouch Events
 extension PlayerControlView {
     
-    @IBAction func tappedPlayButton(_ sender: UIButton) {
-        
+    @IBAction func tappedPlayPauseButton(_ sender: UIButton) {
+        guard let dataSource = dataSource else {
+            return
+        }
+        if dataSource.isPlayerPlaying() {
+            delegate?.playerControlDidTapPause(self)
+            playPauseButton.setImage(UIImage(named: "pause-button"), for: .normal)
+        } else {
+            delegate?.playerControlDidTapPlay(self)
+            playPauseButton.setImage(UIImage(named: "play-button"), for: .normal)
+        }
     }
     
     @IBAction func tappedPreviousButton(_ sender: UIButton) {

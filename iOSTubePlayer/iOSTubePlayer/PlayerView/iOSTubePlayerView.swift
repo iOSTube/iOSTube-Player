@@ -62,6 +62,8 @@ class iOSTubePlayerView: UIView {
     
     private func initPlayerControlView() {
 //        playerControlView.disappearControlerView()
+        playerControlView.delegate = self
+        playerControlView.dataSource = self
         addSubview(playerControlView)
     }
 }
@@ -89,5 +91,39 @@ extension iOSTubePlayerView {
         if !isPlaying {
             player.play()
         }
+    }
+    
+    func playerPause() {
+        if isPlaying {
+            player.pause()
+        }
+    }
+}
+
+// MARK: - PlayerControlDataSource
+extension iOSTubePlayerView: PlayerControlDataSource {
+    
+    func isPlayerPlaying() -> Bool {
+        return isPlaying
+    }
+}
+
+// MARK: - PlayerControlDelegate
+extension iOSTubePlayerView: PlayerControlDelegate {
+    
+    func playerControlDidTapPlay(_ playerControlView: PlayerControlView) {
+        playerPlay()
+    }
+    
+    func playerControlDidTapPause(_ playerControlView: PlayerControlView) {
+        playerPause()
+    }
+    
+    func playerControlDidTapPrevious(_ playerControlView: PlayerControlView) {
+        
+    }
+    
+    func playerControlDidTapNext(_ playerControlView: PlayerControlView) {
+        
     }
 }

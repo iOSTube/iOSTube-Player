@@ -15,7 +15,7 @@
                 <outlet property="controlFooterView" destination="1qr-eO-dQB" id="75l-Vo-DVD"/>
                 <outlet property="controlHeaderView" destination="bnz-eW-zhv" id="6x6-mH-ZCe"/>
                 <outlet property="nextButton" destination="tgI-V2-RO6" id="Rxd-Mb-vo2"/>
-                <outlet property="playButton" destination="uDi-rS-xfy" id="smx-XG-xML"/>
+                <outlet property="playPauseButton" destination="uDi-rS-xfy" id="gF1-HO-LZn"/>
                 <outlet property="previousButton" destination="QET-Wb-nRR" id="wQE-Fs-gWR"/>
             </connections>
         </placeholder>
@@ -62,7 +62,7 @@
                             <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="play-button"/>
                             <connections>
-                                <action selector="tappedPlayButton:" destination="-1" eventType="touchUpInside" id="p8u-LO-WNc"/>
+                                <action selector="tappedPlayPauseButton:" destination="-1" eventType="touchUpInside" id="GHx-J8-dEO"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgI-V2-RO6">
