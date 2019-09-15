@@ -10,8 +10,37 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var playerView: iOSTubePlayerView!
+    
+    // MARK: - Variables
+    private let sampleVideoUrl: String = "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4"
+    
+    private var videoUrl: URL {
+        return URL(string: sampleVideoUrl)!
+    }
+    
+    private var playerViewCode: iOSTubePlayerView = {
+        return iOSTubePlayerView(frame: .zero)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        playerViewCode.frame = playerView.bounds
+        playerViewCode.frame.origin.y = 300
+        view.addSubview(playerViewCode)
+        
+        playerView.requestPlay(url: videoUrl)
+        playerViewCode.requestPlay(url: videoUrl)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 
+// MARk: -
+extension MainViewController {
+    
+}
