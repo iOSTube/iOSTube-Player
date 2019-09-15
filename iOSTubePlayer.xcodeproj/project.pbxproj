@@ -13,6 +13,9 @@
 		49758B1E232E4CBB004C25A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49758B1D232E4CBB004C25A6 /* Assets.xcassets */; };
 		49758B21232E4CBB004C25A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49758B1F232E4CBB004C25A6 /* LaunchScreen.storyboard */; };
 		49758B2E232E4FA9004C25A6 /* iOSTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B2D232E4FA9004C25A6 /* iOSTubePlayerView.swift */; };
+		49758B32232E5B9F004C25A6 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B31232E5B9F004C25A6 /* PlayerControlView.swift */; };
+		49758B34232E5BB0004C25A6 /* PlayerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49758B33232E5BB0004C25A6 /* PlayerControlView.xib */; };
+		49758B39232E5C35004C25A6 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49758B38232E5C35004C25A6 /* Nib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		49758B20232E4CBB004C25A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49758B22232E4CBB004C25A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49758B2D232E4FA9004C25A6 /* iOSTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTubePlayerView.swift; sourceTree = "<group>"; };
+		49758B31232E5B9F004C25A6 /* PlayerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
+		49758B33232E5BB0004C25A6 /* PlayerControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerControlView.xib; sourceTree = "<group>"; };
+		49758B38232E5C35004C25A6 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				49758B15232E4CBA004C25A6 /* iOSTubePlayer */,
-				49758B14232E4CBA004C25A6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +56,7 @@
 				49758B13232E4CBA004C25A6 /* iOSTubePlayer.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		49758B15232E4CBA004C25A6 /* iOSTubePlayer */ = {
@@ -59,8 +65,10 @@
 				49758B22232E4CBB004C25A6 /* Info.plist */,
 				49758B16232E4CBA004C25A6 /* AppDelegate.swift */,
 				49758B28232E4E3C004C25A6 /* Assets */,
+				49758B3A232E600D004C25A6 /* Utils */,
 				49758B2C232E4EF4004C25A6 /* iOSTubePlayer */,
 				49758B29232E4E4D004C25A6 /* Player Sample App */,
+				49758B14232E4CBA004C25A6 /* Products */,
 			);
 			path = iOSTubePlayer;
 			sourceTree = "<group>";
@@ -111,8 +119,34 @@
 			isa = PBXGroup;
 			children = (
 				49758B2D232E4FA9004C25A6 /* iOSTubePlayerView.swift */,
+				49758B30232E5B2C004C25A6 /* PlayerControlView */,
 			);
 			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		49758B30232E5B2C004C25A6 /* PlayerControlView */ = {
+			isa = PBXGroup;
+			children = (
+				49758B33232E5BB0004C25A6 /* PlayerControlView.xib */,
+				49758B31232E5B9F004C25A6 /* PlayerControlView.swift */,
+			);
+			path = PlayerControlView;
+			sourceTree = "<group>";
+		};
+		49758B37232E5C2A004C25A6 /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				49758B38232E5C35004C25A6 /* Nib.swift */,
+			);
+			path = Nib;
+			sourceTree = "<group>";
+		};
+		49758B3A232E600D004C25A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				49758B37232E5C2A004C25A6 /* Nib */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +210,7 @@
 				49758B21232E4CBB004C25A6 /* LaunchScreen.storyboard in Resources */,
 				49758B1E232E4CBB004C25A6 /* Assets.xcassets in Resources */,
 				49758B1C232E4CBA004C25A6 /* Main.storyboard in Resources */,
+				49758B34232E5BB0004C25A6 /* PlayerControlView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49758B19232E4CBA004C25A6 /* MainViewController.swift in Sources */,
+				49758B39232E5C35004C25A6 /* Nib.swift in Sources */,
 				49758B2E232E4FA9004C25A6 /* iOSTubePlayerView.swift in Sources */,
+				49758B32232E5B9F004C25A6 /* PlayerControlView.swift in Sources */,
 				49758B17232E4CBA004C25A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

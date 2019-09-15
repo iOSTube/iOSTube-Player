@@ -28,6 +28,7 @@ class iOSTubePlayerView: UIView {
         return player.rate != 0.0
     }
     
+    // MARK: - Initial
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -52,6 +53,12 @@ class iOSTubePlayerView: UIView {
             playerLayer.player = player
             playerLayer.videoGravity = .resizeAspectFill
         }
+        initPlayerControlView()
+    }
+    
+    private func initPlayerControlView() {
+        let controlView = PlayerControlView(frame: bounds)
+        addSubview(controlView)
     }
 }
 
@@ -64,8 +71,8 @@ extension iOSTubePlayerView {
         
         if player.canInsert(playerItem, after: player.items().last) {
             player.insert(playerItem, after: nil)
+            playerPlay()
         }
-        playerPlay()
     }
 }
 
