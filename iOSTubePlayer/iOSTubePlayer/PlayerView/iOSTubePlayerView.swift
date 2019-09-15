@@ -31,6 +31,10 @@ class iOSTubePlayerView: UIView {
         return PlayerControlView(frame: .zero)
     }()
     
+    // MARK: - Variables
+    weak var delegate: iOSTubePlayerDelegate?
+    weak var dataSource: iOSTubePlayerDataSource?
+    
     // MARK: - Initial
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -120,10 +124,12 @@ extension iOSTubePlayerView: PlayerControlDelegate {
     }
     
     func playerControlDidTapPrevious(_ playerControlView: PlayerControlView) {
-        
+        playerPause()
+        delegate?.requestPrevious(self, currentItem: player.currentItem)
     }
     
     func playerControlDidTapNext(_ playerControlView: PlayerControlView) {
-        
+        playerPause()
+        delegate?.requestNext(self, currentItem: player.currentItem)
     }
 }

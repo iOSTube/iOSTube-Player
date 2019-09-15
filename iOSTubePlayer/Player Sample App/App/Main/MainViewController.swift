@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class MainViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        playerView.delegate = self
+        playerViewCode.delegate = self
         view.addSubview(playerViewCode)
         
         playerView.requestPlay(url: videoUrl)
@@ -45,7 +48,19 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARk: -
-extension MainViewController {
+// MARK: - iOSTubePlayerDataSource
+extension MainViewController: iOSTubePlayerDataSource {
     
+}
+
+// MARK: - iOSTubePlayerDelegate
+extension MainViewController: iOSTubePlayerDelegate {
+    
+    func requestPrevious(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
+        print("requestPrevious")
+    }
+    
+    func requestNext(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
+        print("requestNext")
+    }
 }

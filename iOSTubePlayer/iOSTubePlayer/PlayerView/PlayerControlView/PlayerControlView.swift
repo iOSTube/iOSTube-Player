@@ -47,14 +47,14 @@ class PlayerControlView: UIView, Nib {
 extension PlayerControlView {
     
     func appearControlView() {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.alpha = 1.0
+        UIView.animate(withDuration: 0.5) {
+            self.alpha = 1.0
         }
     }
     
     func disappearControlerView() {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.alpha = 0.0
+        UIView.animate(withDuration: 0.5) {
+            self.alpha = 0.0
         }
     }
 }
@@ -76,10 +76,10 @@ extension PlayerControlView {
     }
     
     @IBAction func tappedPreviousButton(_ sender: UIButton) {
-        
+        delegate?.playerControlDidTapPrevious(self)
     }
     
     @IBAction func tappedNextButton(_ sender: UIButton) {
-        
+        delegate?.playerControlDidTapNext(self)
     }
 }
