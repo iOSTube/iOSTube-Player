@@ -20,8 +20,8 @@ class MainViewController: UIViewController {
     }()
     
     private var sampleVideos = VideoData.Samples()
-    private var currentIndex1: Int = 0
-    private var currentIndex2: Int = 0
+    private var currentIndexIB: Int = 0
+    private var currentIndexCode: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,8 @@ class MainViewController: UIViewController {
         playerViewCode.delegate = self
         view.addSubview(playerViewCode)
         
-        playerViewIB.requestPlay(url: sampleVideos[currentIndex1].url)
-        playerViewCode.requestPlay(url: sampleVideos[currentIndex2].url)
+        playerViewIB.requestPlay(url: sampleVideos[currentIndexIB].url)
+        playerViewCode.requestPlay(url: sampleVideos[currentIndexCode].url)
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,10 +57,11 @@ extension MainViewController: iOSTubePlayerDelegate {
     func requestPrevious(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
         switch playerView {
         case playerViewIB:
-            currentIndex1 -= 1
-            requestPlay(playerView: playerView, index: currentIndex1)
+            currentIndexIB -= 1
+            requestPlay(playerView: playerView, index: currentIndexIB)
         case playerViewCode:
-            currentIndex2 -= 1
+            currentIndexCode -= 1
+            requestPlay(playerView: playerView, index: currentIndexCode)
         default:
             break
         }
@@ -69,10 +70,11 @@ extension MainViewController: iOSTubePlayerDelegate {
     func requestNext(_ playerView: iOSTubePlayerView, currentItem: AVPlayerItem?) {
         switch playerView {
         case playerViewIB:
-            currentIndex1 += 1
-            requestPlay(playerView: playerView, index: currentIndex1)
+            currentIndexIB += 1
+            requestPlay(playerView: playerView, index: currentIndexIB)
         case playerViewCode:
-            currentIndex2 += 1
+            currentIndexCode += 1
+            requestPlay(playerView: playerView, index: currentIndexCode)
         default:
             break
         }

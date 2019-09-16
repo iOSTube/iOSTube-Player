@@ -22,7 +22,7 @@ struct VideoData {
         
         subscript (_ index: Int) -> VideoData {
             let videos = makeSampleData()
-            let modularIndex = index % videos.count
+            let modularIndex = index % videos.count > 0 ? index % videos.count : 0
             return videos[modularIndex]
         }
     }
